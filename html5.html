@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Local Community Event Portal</title>
+  <style>
+    /* Exercise 3 - Internal CSS */
+    #welcomeBanner {
+      background-color: blue;
+      color: white;
+      padding: 10px;
+    }
+    .highlight {
+      background-color: yellow;
+      font-weight: bold;
+    }
+    .gallery img {
+      border: 2px solid #333;
+      width: 150px;
+    }
+    form {
+      margin-top: 20px;
+      padding: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+  <script>
+    // Exercise 6 - Event Handling
+    function validatePhone(el) {
+      const phone = el.value;
+      if (!/^\d{10}$/.test(phone)) {
+        alert("Phone must be 10 digits");
+      }
+    }
+
+    function showFee(select) {
+      document.getElementById('feeDisplay').textContent = 'Fee: $' + (select.value === 'concert' ? '10' : 'Free');
+    }
+
+    function confirmSubmit() {
+      alert("Form submitted successfully!");
+    }
+
+    function enlargeImage(el) {
+      el.style.width = "300px";
+    }
+
+    function countChars(el) {
+      document.getElementById('charCount').textContent = el.value.length + " characters";
+    }
+
+    // Exercise 7 - Video and oncanplay
+    function videoReady() {
+      document.getElementById('videoMsg').textContent = "Video ready to play";
+    }
+
+    // Exercise 8 - Preferences
+    function savePreference(select) {
+      localStorage.setItem('eventType', select.value);
+    }
+
+    function clearPreferences() {
+      localStorage.clear();
+      sessionStorage.clear();
+    }
+
+    // Exercise 9 - Geolocation
+    function findEvents() {
+      navigator.geolocation.getCurrentPosition(
+        (pos) => {
+          document.getElementById('location').textContent =
+            `Lat: ${pos.coords.latitude}, Lng: ${pos.coords.longitude}`;
+        },
+        (err) => {
+          alert("Error getting location: " + err.message);
+        },
+        { enableHighAccuracy: true, timeout: 10000 }
+      );
+    }
+
+    // Exercise 7 - Warn on unload
+    window.onbeforeunload = function () {
+      return "You have unsaved changes!";
+    };
+
+    // Exercise 8 - Load preference on page load
+    window.onload = function () {
+      const savedType = localStorage.getItem('eventType');
+      if (savedType) {
+        document.getElementById('eventType').value = savedType;
+      }
+    };
+  </script>
+</head>
+<body>
+
+  <!-- Exercise 1: Base Template -->
+  <!-- Navigation -->
+  <nav>
+    <!-- Exercise 2: Navigation -->
+    <a href="#home">Home</a> |
+    <a href="#events">Events</a> |
+    <a href="#contact">Contact</a> |
+    <a href="help.html" target="_blank">Help</a>
+  </nav>
+
+  <!-- Main -->
+  <main>
+    <!-- Exercise 3: Welcome Banner -->
+    <div id="welcomeBanner">
+      Welcome to our Community Portal! <span style="color:red;font-weight:bold;">Special Offer!</span>
+    </div>
+
+    <!-- Exercise 4: Image Gallery -->
+    <section id="gallery" class="gallery">
+      <h2>Event Gallery</h2>
+      <table>
+        <caption>Community Events</caption>
+        <tr>
+          <td><img src="event1.jpg" alt="Pic 1" title="Pic 1"></td>
+          <td><img src="event2.jpg" alt="Pic 2" title="Pic 2"></td>
+          <td><img src="event3.jpg" alt="Pic 3" title="Pic 3"></td>
+        </tr>
+        <tr>
+          <td><img src="event4.jpg" alt="Pic 4" title="Pic 4"></td>
+          <td><img src="event5.jpg" alt="Pic 5" title="Pic 5"></td>
+          <td><img src="event6.jpg" alt="Pic 6" title="Pic 6"></td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- Exercise 5: Registration Form -->
+    <section id="events">
+      <h2>Register for an Event</h2>
+      <form onsubmit="confirmSubmit(); return false;">
+        <input type="text" name="name" placeholder="Your Name" required autofocus><br><br>
+        <input type="email" name="email" placeholder="Email Address" required><br><br>
+        <input type="date" name="eventDate" required><br><br>
+        <select id="eventType" onchange="showFee(this); savePreference(this);" required>
+          <option value="">Select Event Type</option>
+          <option value="concert">Concert</option>
+          <option value="cleanup">Cleanup Drive</option>
+        </select>
+        <span id="feeDisplay"></span><br><br>
+        <textarea placeholder="Message" rows="4" cols="30" onkeyup="countChars(this)"></textarea><br>
+        <span id="charCount"></span><br><br>
+        <input type="text" placeholder="Phone Number" onblur="validatePhone(this)"><br><br>
+        <button type="submit">Submit</button>
+        <output>Form submitted successfully!</output>
+      </form>
+    </section>
+
+    <!-- Exercise 6: Event Handling with Image -->
+    <section>
+      <h2>Interact with Image</h2>
+      <img src="event-thumb.jpg" alt="Thumbnail" ondblclick="enlargeImage(this)" width="150">
+    </section>
+
+    <!-- Exercise 7: Video Invite -->
+    <section>
+      <h2>Event Promo</h2>
+      <video controls oncanplay="videoReady()">
+        <source src="promo.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+      <p id="videoMsg"></p>
+    </section>
+
+    <!-- Exercise 8: Preferences -->
+    <section>
+      <h2>Preferences</h2>
+      <button onclick="clearPreferences()">Clear Preferences</button>
+    </section>
+
+    <!-- Exercise 9: Geolocation -->
+    <section>
+      <h2>Find Nearby Events</h2>
+      <button onclick="findEvents()">Find Nearby Events</button>
+      <p id="location"></p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <p class="highlight">Contact us at community@localportal.com</p>
+  </footer>
+
+</body>
+</html>
