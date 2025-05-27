@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Community Event Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Fallback color for background image [cite: 13] */
+        }
+    </style>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header id="mainHeader"> <h1 style="color: red;">Welcome to Our Community Portal</h1> <nav>
+            <ul>
+                <li><a href="#" class="nav-link">Home</a></li>
+                <li><a href="#" class="nav-link">Events</a></li>
+                <li><a href="#" class="nav-link">About Us</a></li>
+                <li><a href="#" class="nav-link">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Upcoming Events</h2> <div class="eventCard"> <h3>Community Picnic</h3> <p>Join us for a fun-filled day at the park. Enjoy food, games, and good company. This is a family-friendly event. [cite: 12] </p>
+                <a href="#" class="event-link">Details</a>
+            </div>
+            <div class="eventCard">
+                <h3>Town Hall Meeting</h3>
+                <p>Discuss important community issues with local leaders. Your voice matters! Please come prepared with questions. [cite: 12] </p>
+                <a href="#" class="event-link">Details</a>
+            </div>
+        </section>
+
+        <section class="news-article-section"> <h2>Community Bulletin</h2>
+            <div class="article-content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <p>Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Event Admin Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Event Name</th>
+                        <th>Date</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Annual Fair</td>
+                        <td>2024-08-15</td>
+                        <td>Central Park</td>
+                    </tr>
+                    <tr>
+                        <td>Book Club Meeting</td>
+                        <td>2024-09-01</td>
+                        <td>Community Library</td>
+                    </tr>
+                    <tr>
+                        <td>Yoga Class</td>
+                        <td>2024-09-10</td>
+                        <td>Fitness Center</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Contact Form</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" class="highlight-field"> <label for="message">Message:</label>
+                <textarea id="message" name="message"></textarea>
+
+                <button type="submit">Send</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Local Community Event Portal</p>
+    </footer>
+
+</body>
+</html>
